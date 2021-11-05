@@ -1,0 +1,21 @@
+{
+    "playlists":[
+        {
+            "title":"playlist1",
+            "songs":[
+                {"song1":"hola"},
+                {"song2":"chau"}
+            ]
+        },
+        {
+            "title":"playlist2",
+            "songs":[
+                {"song1":"hello"},
+                {"song2":"bye"}
+                ]
+        }
+    ],
+    "users":{
+        
+    }
+}
