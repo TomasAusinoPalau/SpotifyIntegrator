@@ -1,8 +1,12 @@
+package Playable;
 import java.util.ArrayList;
+
+import CreationalClass.Playlist;
+import CreationalClass.Song;
 
 public class Basic implements IPlayable {
     
-    Basic() {
+    public Basic() {
         // super.setPlaylistContainer(new ArrayList<>());
     }
 
@@ -22,7 +26,7 @@ public class Basic implements IPlayable {
     @Override
     public void addSong(Song song, Playlist playlist) {
         // TODO Auto-generated method stub
-        if(playlist.getCanciones().size() <= 30) {
+        if(playlist.getSongs().size() <= 30) {
             playlist.addSong(song);
         } else System.out.println("Contrata premium para poder crear playlist con más de 30 canciones");
 

@@ -1,31 +1,32 @@
+package CreationalClass;
 import java.util.ArrayList;
 
 public class Playlist {
     private String playlistTitle;
-    private ArrayList<Song> canciones;
+    private ArrayList<Song> songs;
 
-    Playlist(String title, Song[] canciones) {
+    public Playlist(String title, Song[] canciones) {
         this.playlistTitle = title;
         for(Song cancion : canciones) {
-            this.canciones.add(cancion);
+            this.songs.add(cancion);
         }
     }
 
-    Playlist(String title, ArrayList<Song> canciones) {
+    public Playlist(String title, ArrayList<Song> songs) {
         this.playlistTitle = title;
-        this.canciones = canciones;
+        this.songs = songs;
     }
     
     public void addSong(Song cancion) {
-        this.canciones.add(cancion);
+        this.songs.add(cancion);
     }
 
-    public ArrayList<Song> getCanciones() {
-        return canciones;
+    public ArrayList<Song> getSongs() {
+        return songs;
     }
 
-    public void setCanciones(ArrayList<Song> canciones) {
-        this.canciones = canciones;
+    public void setSongs(ArrayList<Song> canciones) {
+        this.songs = canciones;
     }
 
     public String getPlaylistTitle() {
@@ -37,7 +38,7 @@ public class Playlist {
     }
 
     public Song selectRandomSong() {
-        return this.getCanciones().get((int) Math.random() * this.getCanciones().size());
+        return this.getSongs().get((int) Math.random() * this.getSongs().size());
     }
    
 }

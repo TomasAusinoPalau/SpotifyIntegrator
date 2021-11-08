@@ -1,3 +1,8 @@
+package Playable;
+
+import CreationalClass.Playlist;
+import CreationalClass.Song;
+
 public interface IPlayable {
     public void shufflePlay(Playlist playlist);
     public void playSong(Song song);

@@ -1,6 +1,13 @@
+package Playable;
+
+import CreationalClass.Playlist;
+import CreationalClass.Song;
+
 public class Premium implements IPlayable {
 
-    Premium() {}
+    public Premium() {
+
+    }
 
     @Override
     public void shufflePlay(Playlist playlist) {

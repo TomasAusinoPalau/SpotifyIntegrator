@@ -1,4 +1,7 @@
+package CreationalClass;
 import java.util.ArrayList;
+
+import Playable.IPlayable;
 
 public class User {
     private String username;
@@ -6,7 +9,7 @@ public class User {
     private ArrayList<Playlist> playlistContainer;
     private IPlayable tipoUsuario;
 
-    User(String username, String password, IPlayable tipoUsuario) {
+    public User(String username, String password, IPlayable tipoUsuario) {
         this.username = username;
         this.password = password;
         this.tipoUsuario = tipoUsuario;

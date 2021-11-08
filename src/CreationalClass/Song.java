@@ -1,8 +1,10 @@
+package CreationalClass;
+
 public class Song {
     private String title, album, artist;
     private float duration; 
 
-    Song(String title, String album, String artista, float duracion) {
+    public Song(String title, String album, String artista, float duracion) {
         this.title = title;
         this.album = album;
         this.artist = artista;
