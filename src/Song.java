@@ -1,9 +1,9 @@
-public class Cancion {
-    private String name, album, artist;
+public class Song {
+    private String title, album, artist;
     private float duration; 
 
-    Cancion(String nombre, String album, String artista, float duracion) {
-        this.name = nombre;
+    Song(String title, String album, String artista, float duracion) {
+        this.title = title;
         this.album = album;
         this.artist = artista;
         this.duration = duracion;
@@ -21,8 +21,8 @@ public class Cancion {
         return duration;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
 }

@@ -1,16 +1,25 @@
 import java.util.ArrayList;
 
-public abstract class User implements IPlayable {
+public class User {
     private String username;
     private String password;
     private ArrayList<Playlist> playlistContainer;
+    private IPlayable tipoUsuario;
 
-    User(String username, String password) {
+    User(String username, String password, IPlayable tipoUsuario) {
         this.username = username;
         this.password = password;
+        this.tipoUsuario = tipoUsuario;
         this.playlistContainer = new ArrayList<>();
     }
 
+    public IPlayable getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(IPlayable tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
     public String getPassword() {
         return password;
     }
@@ -34,10 +43,11 @@ public abstract class User implements IPlayable {
         this.playlistContainer.add(playlist);
     }
 
-    public void createPlaylist(String title, Cancion[] canciones) {
-        Playlist playlist = new Playlist(title, canciones);
-        this.setPlaylistContainer(playlist);
+    public void playSong(Song song) {
+        this.tipoUsuario.playSong(song);
     }
+
+    
 
 
 }
