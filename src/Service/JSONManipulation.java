@@ -1,3 +1,4 @@
+package Service;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -5,11 +6,10 @@ import org.json.simple.parser.JSONParser;
 import CreationalClass.Playlist;
 import CreationalClass.Song;
 import CreationalClass.User;
-import Playable.Basic;
+import Playable.*;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 import java.util.ArrayList;
@@ -18,37 +18,37 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class JSONManipulation implements IHandler {
     private static AtomicInteger userCounter = new AtomicInteger();
     private static AtomicInteger playlistCounter = new AtomicInteger();
+
+    private static ArrayList<Playlist> instanciedPlaylist = new ArrayList<Playlist>();
+    private static ArrayList<User> instanciedUsers = new ArrayList<User>();
     
     
     private static JSONObject mainObject = new JSONObject();
     private static JSONArray arrayUsers = new JSONArray();
     private static JSONArray arrayPlaylists = new JSONArray();
     
-    JSONManipulation(){
-        this.readJSON(mainObject);
+    public JSONManipulation(){
+        this.readJSON();
     }
-    public static void createBasic(User user) throws IOException {
-        JSONObject objetoBasic = new JSONObject();
-        objetoBasic.put("id", userCounter.getAndIncrement());
-        objetoBasic.put("username", user.getUsername());
-        objetoBasic.put("password", user.getPassword());
-        objetoBasic.put("type", "basic");
 
-        objetoBasic.put("playlists", new JSONArray());
-        arrayUsers.add(objetoBasic);
+    public static void createUser(User user) throws IOException {
+        JSONObject objeto = new JSONObject();
+        objeto.put("id", userCounter.getAndIncrement());
+        objeto.put("username", user.getUsername());
+        objeto.put("password", user.getPassword());
+        if(user.getUserType().getClass().getName().equals("Basic")) {
+            objeto.put("type", "basic");
+        } else {
+            objeto.put("type", "premium");
+        }
+
+        objeto.put("playlists", new JSONArray());
+        arrayUsers.add(objeto);
         writeJSON(mainObject);
     }
 
-    public static void createPremium(User user) throws IOException {
-        JSONObject objetoPremium = new JSONObject();
-        objetoPremium.put("id", userCounter.getAndIncrement());
-        objetoPremium.put("username", user.getUsername());
-        objetoPremium.put("password", user.getPassword());
-        objetoPremium.put("type", "premium");
-
-        objetoPremium.put("playlists", new JSONArray());
-        arrayUsers.add(objetoPremium);
-        writeJSON(mainObject);
+    public static ArrayList<User> getInstanciedUsers() {
+        return instanciedUsers;
     }
 
     public static void createPlaylist(String title, Playlist playlist){
@@ -74,7 +74,6 @@ public class JSONManipulation implements IHandler {
     }
 
     public static void addSongToPlaylist(String title, Song song){
-
         for(Object playlistObject : arrayPlaylists) {
             int playlistIndex = arrayPlaylists.indexOf(playlistObject);
             JSONObject playlistJSON = (JSONObject) playlistObject;
@@ -90,10 +89,9 @@ public class JSONManipulation implements IHandler {
     
 
     private static void writeJSON(JSONObject object) {
-            object.clear();
-            object.put("Users", arrayUsers);
-            object.put("Playlist", arrayPlaylists);
-
+        object.clear();
+        object.put("Users", arrayUsers);
+        object.put("Playlist", arrayPlaylists);
 
         try(FileWriter file = new FileWriter("./database.json", false)) {
             file.write(object.toJSONString());
@@ -104,9 +102,32 @@ public class JSONManipulation implements IHandler {
         
     }
 
-    private static void readJSON(JSONObject object) {
+    public static void readJSON() {
+        JSONParser parser = new JSONParser();
+
         try(FileReader file = new FileReader("./database.json")) {
-            
+            Object obj = parser.parse(file);
+            JSONObject json = (JSONObject) obj;
+            arrayPlaylists = (JSONArray) json.get("Playlists");
+            arrayUsers = (JSONArray) json.get("Users");
+
+            for(Object object : arrayPlaylists) {
+                JSONObject playlist = (JSONObject) object;
+                Playlist actual = new Playlist((String) playlist.get("title"),(ArrayList<Song>)  playlist.get("songs"),(String) playlist.get("creator"));
+                instanciedPlaylist.add(actual);
+            }
+
+            for(Object object : arrayUsers) {
+                JSONObject user = (JSONObject) object;
+                String userType = (String) user.get("type");
+                if(userType.equals("basic")) {
+                    User actual = new User((String) user.get("username"), (String) user.get("password"), new Basic());
+                    instanciedUsers.add(actual);
+                } else {
+                    User actual = new User((String) user.get("username"), (String) user.get("password"), new Premium());
+                    instanciedUsers.add(actual);
+                }
+            }        
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -120,14 +141,7 @@ public class JSONManipulation implements IHandler {
         return arrayUsers;
     }
 
-    // public static void main(String[] args) throws java.io.IOException {
-        
-    //     User user = new User("Claudio", "password", new Basic());
-    //     JSONManipulation.createBasic(user);
-    //     JSONManipulation.createBasic(user);
-    //     JSONManipulation.createBasic(user);
-    //     System.out.println(JSONManipulation.getArrayUsers());
+    // public static void main(String[] args) throws java.io.IOException {        
+    //     JSONManipulation.readJSON();
     // }
 }
-
-

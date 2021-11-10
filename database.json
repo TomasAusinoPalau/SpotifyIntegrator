@@ -1,2 +1,7 @@
-{"Playlist":[],
-    "Users":[{"password":"password","playlists":[],"id":0,"type":"basic","username":"Claudio"},{"password":"password","playlists":[],"id":1,"type":"basic","username":"Claudio"},{"password":"password","playlists":[],"id":2,"type":"basic","username":"Claudio"}]}
+{"Playlists":[],
+    "Users":[
+        {"password":"password","playlists":[],"id":0,"type":"basic","username":"Fausto"},
+        {"password":"password","playlists":[],"id":1,"type":"basic","username":"Claudio"},
+        {"password":"password","playlists":[],"id":2,"type":"premium","username":"Qucumelo"}
+            ]
+}

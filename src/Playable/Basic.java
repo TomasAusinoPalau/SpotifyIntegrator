@@ -33,21 +33,21 @@ public class Basic implements IPlayable {
     }
         
     @Override
-    public Playlist createPlaylist(String title, Song[] canciones) {
+    public Playlist createPlaylist(String title, Song[] canciones, String creator) {
         // TODO Auto-generated method stub
         if(canciones.length <= 30) {
             //super.createPlaylist(title, canciones);
-            return new Playlist(title, canciones);
+            return new Playlist(title, canciones, creator);
         } else {
             System.out.println("Contrata premium para poder crear playlist con más de 30 canciones");
             return null;
         }
     }
 
-    public Playlist createPlaylist(String title, ArrayList<Song> canciones) {
+    public Playlist createPlaylist(String title, ArrayList<Song> canciones, String creator) {
         // TODO Auto-generated method stub
         if(canciones.size() <= 30) {
-            return new Playlist(title, canciones);
+            return new Playlist(title, canciones, creator);
         } else {
             System.out.println("Contrata premium para poder crear playlist con más de 30 canciones");
             return null;

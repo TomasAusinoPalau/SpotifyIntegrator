@@ -7,21 +7,21 @@ public class User {
     private String username;
     private String password;
     private ArrayList<Playlist> playlistContainer;
-    private IPlayable tipoUsuario;
+    private IPlayable userType;
 
     public User(String username, String password, IPlayable tipoUsuario) {
         this.username = username;
         this.password = password;
-        this.tipoUsuario = tipoUsuario;
+        this.userType = tipoUsuario;
         this.playlistContainer = new ArrayList<>();
     }
 
-    public IPlayable getTipoUsuario() {
-        return tipoUsuario;
+    public IPlayable getUserType() {
+        return userType;
     }
 
-    public void setTipoUsuario(IPlayable tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setUserType(IPlayable tipoUsuario) {
+        this.userType = tipoUsuario;
     }
     public String getPassword() {
         return password;
@@ -42,15 +42,16 @@ public class User {
         return playlistContainer;
     }
 
-    public void setPlaylistContainer(Playlist playlist) {
+    public void setPlaylist(Playlist playlist) {
         this.playlistContainer.add(playlist);
     }
 
     public void playSong(Song song) {
-        this.tipoUsuario.playSong(song);
+        this.userType.playSong(song);
     }
 
-    
-
+    public Playlist createPlaylist(String title, ArrayList<Song> songs, String creator) {
+        return this.getUserType().createPlaylist(title, songs, creator);
+    }
 
 }

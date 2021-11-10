@@ -2,6 +2,7 @@ package Playable;
 
 import CreationalClass.Playlist;
 import CreationalClass.Song;
+import java.util.ArrayList;
 
 public class Premium implements IPlayable {
 
@@ -30,9 +31,14 @@ public class Premium implements IPlayable {
     }
 
     @Override
-    public Playlist createPlaylist(String title, Song[] canciones) {
+    public Playlist createPlaylist(String title, Song[] canciones, String creator) {
         // TODO Auto-generated method stub
-        return new Playlist(title, canciones);
+        return new Playlist(title, canciones, creator);
+    }
+
+    public Playlist createPlaylist(String title, ArrayList<Song> canciones, String creator) {
+        // TODO Auto-generated method stub
+            return new Playlist(title, canciones, creator);
     }
     
 }
