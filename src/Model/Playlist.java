@@ -1,4 +1,4 @@
-package CreationalClass;
+package Model;
 import java.util.ArrayList;
 
 public class Playlist {
@@ -20,8 +20,11 @@ public class Playlist {
         this.userCreator = creator;
     }
     
-    public void addSong(Song cancion) {
-        this.songs.add(cancion);
+    public void addSong(Song song) {
+        this.songs.add(song);
+    }
+    public void deleteSong (Song song) {
+        this.songs.remove(song);
     }
 
     public ArrayList<Song> getSongs() {

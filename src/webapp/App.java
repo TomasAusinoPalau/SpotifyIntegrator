@@ -1,10 +1,13 @@
-import CreationalClass.*;
-import Playable.Basic;
-import Playable.IPlayable;
-import Playable.Premium;
-import Service.JSONManipulation;
+package webapp;
+import Service.adapters.SecondaryAdapter.JSONManipulationAdapter;
 
 import java.util.ArrayList;
+
+import Model.Song;
+import Model.users.*;
+import Model.users.Playable.Basic;
+import Model.users.Playable.IPlayable;
+import Model.users.Playable.Premium;
 
 public class App {
     public static void main(String[] args) throws Exception {

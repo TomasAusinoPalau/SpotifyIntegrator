@@ -1,8 +1,9 @@
-package Playable;
+package Model.users.Playable;
 
-import CreationalClass.Playlist;
-import CreationalClass.Song;
 import java.util.ArrayList;
+
+import Model.Playlist;
+import Model.Song;
 
 public class Premium implements IPlayable {
 

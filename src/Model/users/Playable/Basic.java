@@ -1,8 +1,8 @@
-package Playable;
+package Model.users.Playable;
 import java.util.ArrayList;
 
-import CreationalClass.Playlist;
-import CreationalClass.Song;
+import Model.Playlist;
+import Model.Song;
 
 public class Basic implements IPlayable {
     
@@ -36,7 +36,7 @@ public class Basic implements IPlayable {
     public Playlist createPlaylist(String title, Song[] canciones, String creator) {
         // TODO Auto-generated method stub
         if(canciones.length <= 30) {
-            //super.createPlaylist(title, canciones);
+            //super.reatePlaylist(title, canciones);
             return new Playlist(title, canciones, creator);
         } else {
             System.out.println("Contrata premium para poder crear playlist con más de 30 canciones");

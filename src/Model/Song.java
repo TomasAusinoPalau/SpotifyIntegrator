@@ -1,10 +1,10 @@
-package CreationalClass;
+package Model;
 
 public class Song {
     private String title, album, artist;
-    private float duration; 
+    private double duration; 
 
-    public Song(String title, String album, String artista, float duracion) {
+    public Song(String title, String album, String artista, double duracion) {
         this.title = title;
         this.album = album;
         this.artist = artista;
@@ -19,7 +19,7 @@ public class Song {
         return artist;
     }
 
-    public float getDuration() {
+    public double getDuration() {
         return duration;
     }
 

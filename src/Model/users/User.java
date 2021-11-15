@@ -1,7 +1,8 @@
-package CreationalClass;
+package Model.users;
 import java.util.ArrayList;
-
-import Playable.IPlayable;
+import Model.Playlist;
+import Model.Song;
+import Model.users.Playable.IPlayable;
 
 public class User {
     private String username;

@@ -1,7 +1,1 @@
-{"Playlists":[],
-    "Users":[
-        {"password":"password","playlists":[],"id":0,"type":"basic","username":"Fausto"},
-        {"password":"password","playlists":[],"id":1,"type":"basic","username":"Claudio"},
-        {"password":"password","playlists":[],"id":2,"type":"premium","username":"Qucumelo"}
-            ]
-}
+{"Playlists":[{"songs":[{"duration":4,"artist":"Bad Bunny","album":"album","title":"La cancion"},{"duration":6,"artist":"Jeff Mills","album":"album","title":"The bells"}],"id":0,"playlistTitle":"Mis favoritas"},{"songs":[{"duration":4.0,"artist":"Bad Bunny","album":"album","title":"La cancion"},{"duration":6.0,"artist":"Jeff Mills","album":"album","title":"The bells"}],"id":0,"playlistTitle":"Mis favoritas"},{"songs":[{"duration":4.0,"artist":"Bad Bunny","album":"album","title":"La cancion"},{"duration":6.0,"artist":"Jeff Mills","album":"album","title":"The bells"}],"id":0,"playlistTitle":"Mis favoritas"},{"songs":[{"duration":4.0,"artist":"Bad Bunny","album":"album","title":"La cancion"},{"duration":6.0,"artist":"Jeff Mills","album":"album","title":"The bells"}],"id":0,"playlistTitle":"Mis favoritas"}],"Users":[{"password":"mypasswordglock","playlists":[],"id":0,"type":"premium","username":"claudio"},{"password":"mypasswordglock","playlists":[],"id":0,"type":"premium","username":"claudio"},{"password":"mypasswordglock","playlists":[],"id":0,"type":"premium","username":"claudio"},{"password":"mypasswordglock","playlists":[],"id":0,"type":"premium","username":"claudio"}]}
